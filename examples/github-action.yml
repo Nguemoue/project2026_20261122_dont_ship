@@ -1,0 +1,19 @@
+# Drop this into your app as .github/workflows/dont-ship.yml
+# Fails the pull request when a critical or high footgun is introduced.
+name: dont-ship
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          coverage: none
+      - name: Scan for production footguns
+        run: php dont-ship.php --no-color .

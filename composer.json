@@ -1,0 +1,14 @@
+{
+    "name": "nguemoue/dont-ship",
+    "description": "One-file scanner for PHP and Laravel bugs that only explode in production.",
+    "type": "project",
+    "license": "MIT",
+    "bin": ["dont-ship.php"],
+    "require": {
+        "php": ">=8.1"
+    },
+    "scripts": {
+        "test": "php tests/self-test.php",
+        "scan": "php dont-ship.php"
+    }
+}
